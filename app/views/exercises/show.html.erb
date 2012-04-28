@@ -1,0 +1,28 @@
+<% title "Exercise" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @exercise.name %>
+</p>
+<p>
+  <strong>Type:</strong>
+  <%= @exercise.extype %>
+</p>
+<p>
+  <strong>Set:</strong>
+  <%= @exercise.set %>
+</p>
+<p>
+  <strong>Repetition:</strong>
+  <%= @exercise.repetition %>
+</p>
+<p>
+  <strong>Target Time:</strong>
+  <%= l @exercise.target_time, :format => :as_hr%>
+</p>
+<p>
+	<% if has_access?(@exercise.user_id)%>
+    	<%= link_to "Modifiy", edit_exercise_path %> | 
+    <%end %>
+<%= render :partial => 'edv_links' %>
+</p>

@@ -1,0 +1,29 @@
+<% title "Exercises" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Set</th>
+    <th>Repetition</th>
+    <th>Target Time</th>
+  </tr>
+  <% for exercise in @exercises %>
+    <tr>
+      <td><%= exercise.name %></td>
+      <td><%= exercise.extype %></td>
+      <td><%= exercise.set %></td>
+      <td><%= exercise.repetition %></td>
+      <td><%= l exercise.target_time, :format => :as_hr%></td>
+      <td><%= link_to "Show", exercise %></td>
+	  <% if has_access?(exercise.user_id)%>
+	      <td><%= link_to "Edit", edit_exercise_path(exercise) %></td>
+	      <td><%= link_to "Destroy", exercise, :confirm => 'Are you sure?', :method => :delete %></td>
+	  <%end%>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+	<%= render :partial => 'edv_links' %>
+</p>

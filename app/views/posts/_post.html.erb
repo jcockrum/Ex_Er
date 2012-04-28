@@ -1,0 +1,23 @@
+<!-- for Displaying post on the topic-->
+<% div_for post do %>
+	<table>
+	    <tr>
+	        <th>Thread: <%= @topic.title %></th>
+			<th>Forum</th>
+			<th>Topic</th>
+			<th>post_id</th>
+	        <th>User</th>
+	    </tr>
+	    <tr>
+	        <td><%= post.body %></td>
+			<td><%= @topic.forum_id %></td>
+			<td><%= post.topic_id %></td>
+			<td><%= post.id %></td>
+	        <td><%= post.user_id %></td>
+	        <% if current_user==post.user %>
+		        <td><%= link_to 'Edit ', edit_post_path(post) %></td>
+		        <td><%= link_to 'Delete ', post_path(@topic, post), :confirm => 'Are you sure?', :method => :delete %></td>
+	        <% end %>
+	    </tr>
+	</table>
+<% end %>

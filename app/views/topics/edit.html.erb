@@ -1,0 +1,19 @@
+<% title "Editing Topic" %>
+<div class="editcontainer">
+	<div class="editleft">
+		<%= form_for([@forum, @topic]) do |f| %>
+		  <div class="field">
+		    <%= f.label :title %><br />
+		    <%= f.text_field :title %>
+		  </div>
+			<%= f.submit %>
+			<%= link_to '  Back to Topic', forum_path(@topic.forum_id) %> 
+		</p>
+		<% end %>
+	</div>
+	<div class="editcontent">
+			<p>Forum: <%= @topic.forum_id %>  </p>
+			<p>Topic: <%= @topic.id %>    	  </p>
+			<p>User: <%= @topic.user_id %>    </p>
+	</div>
+</div>

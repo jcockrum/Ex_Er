@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Start At</th>
+        <th>End At</th>
+    </tr>
+    <% for event in @events %>
+    <tr>
+        <td><%= event.name %></td>
+        <td><%= l(event.start_at, :format=>:short) %></td>
+        <td><%= l(event.end_at, :format=>:short) %></td>
+    </tr>
+    <%end %>
+</table>

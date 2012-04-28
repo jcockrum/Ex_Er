@@ -1,0 +1,44 @@
+<% title "Forum" %>
+<div>
+  <table>
+  	<tr>
+  		<th> Forum Title </th>
+		<th> Forum id </th>
+		<th> User</th>
+  	</tr>
+	<tr>
+		<td> <%= @forum.title %> </td>
+		<td> <%= @forum.id %> </td>
+		<td> <%= @forum.user_id %></td>
+		<% if current_user==@forum.user %>
+		  <td><%= link_to 'Edit', edit_forum_path(@forum) %></td>
+		<% end %>
+	</tr>
+  </table>
+</div>
+	
+<div>
+  <h2>Threads</h2>
+  <table>
+  	<tr>
+		<th>Title</th>
+		<th> Forum</th>
+		<th> Thread</th>
+		<th> User</th>
+	</tr>
+  	<div id ="comments"> <%= render :partial => @forum.topics %> </div>
+  </table> 
+<p></p>
+<p></p>
+<% if current_user %>
+	<h2>New Thread</h2> 
+	  <%= form_for([@forum, @forum.topics.build]) do |f| %>
+		  <div class="field"> <%= f.label "Thread Name" %><br/>
+		    <%= f.text_field :title %>
+		  </div>
+		  <p> <%= f.submit %></p>
+	  <% end %>
+	</div>
+<% end %>
+<p></p>
+<p></p>

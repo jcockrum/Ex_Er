@@ -1,0 +1,21 @@
+<%= form_for [@exercise] do |f| %>
+	
+	<% if @exercise.errors.any? %>
+    <div id="error_explanation">
+      	<%= f.error_messages %>
+    </div>
+  <% end %>
+	
+	
+	<p><%= f.label :name %><br/><%= f.text_field :name %></p>
+	<p><%= f.label "Exercise Type" %><br/><%= f.select :extype,  Exercise::EXTYPE %></p>
+	<div id = "ex_type_a">
+	    <p><%= f.label :set %><br/><%= f.text_field :set %>
+	    </p><p><%= f.label :repetition %><br/><%= f.text_field :repetition %>
+	    </p>
+	</div>
+	<div id = "ex_type_b">
+	    <p><%= f.label :target_time %><br/><%= f.time_select :target_time %>
+	    </p>
+	</div><p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,9 @@
+<li><%= link_to "Home", root_path %></li>
+<% if signed_in? %>
+	<li><%= link_to "Calendar", calendars_index_path %></li>
+	<li><%= link_to "Workouts", events_path %></li>
+	<li><%= link_to "Exercises", exercises_path %></li>
+<% else %>
+	<li><%= link_to "Sign in", login_path %></li>
+	<li><%= link_to "New Account", signup_path %></li>
+<% end %>

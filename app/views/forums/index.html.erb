@@ -1,0 +1,17 @@
+<% title "Forums" %>
+<table>
+    <tr>
+        <th>Forum</th>
+        <th>User</th>
+    </tr>
+    <%= render @forums %><br/>
+    <tr>
+       <% if current_user%>
+		<th><%= link_to 'New Forum', new_forum_path %></th>
+	  <% end %>
+    </tr>
+</table>
+<div>
+    <p></p>
+	<p></p>
+</div>

@@ -1,0 +1,23 @@
+<% title "Welcome to Ex_Er" %>
+<% if signed_in? %>
+<% if admin? %>
+<h3>Welcome Adminstrator <%= current_user.username %></h3>
+<% else %>
+<h3>Welcome <%= current_user.username %></h3>
+<% end %>
+<% else %>
+<h3> Welcome to Ex_Er</h3>
+<% end %>
+<table>
+    <tr>
+        <caption><h2>Current Program</h2></caption>
+    </tr>
+    <tr>
+        <th>Current Workout</th>
+        <th>Current Exercises</th>
+    </tr>
+    <tr>
+        <td><%= render :partial => 'events/display' %></td>
+        <td><%= render :partial => 'exercises/display' %></td>
+    </tr>
+</table>

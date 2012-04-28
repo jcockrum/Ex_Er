@@ -1,0 +1,16 @@
+<% title "Users" %>
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+    </tr>
+    <% for user in @users %>
+    <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <% if admin? %>
+			<td><%= link_to "Show", user %></td>
+		<% end %>
+    </tr>
+    <% end %>
+</table>

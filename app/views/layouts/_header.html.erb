@@ -1,0 +1,17 @@
+<div id="header">
+    <h1 id="header"><%= yield(:title)%></h1>
+    <div id="user-navigation">
+        <ul class="wat-cf">
+            <% if signed_in? %>
+	            <li><%= link_to "Profile", current_user %></li>
+	            <% if admin? %>
+					<li><%= link_to "Administration", users_path %></li>
+				<% end %>			
+				<li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+	            <% else %>
+				<li><%= link_to "New Account", signup_path %></li>
+	            <li><a href="/login" class="logout"><%= t("web-app-theme.logout", :default => "login") %></a></li>
+            <% end %>
+        </ul>
+    </div>
+</div>

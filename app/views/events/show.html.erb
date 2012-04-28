@@ -1,0 +1,25 @@
+<% title "Workout" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+<p>
+  <strong>exercise:</strong>
+  <%= @exercise.name %>
+</p>
+<p>
+  <strong>Start At:</strong>
+  <%=  l(@event.start_at, :format=>:long) %>
+</p>
+<p>
+  <strong>End At:</strong>
+  <%=  l(@event.end_at, :format=>:long) %>
+</p>
+
+<p>
+	<% if has_access?(@event.user_id)%>
+    	<%= link_to "Modifiy", edit_event_path %> | 
+    <%end %>
+<%= render :partial => 'edv_links' %>
+</p>

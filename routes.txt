@@ -1,0 +1,35 @@
+        log_out GET    /log_out(.:format)                     {:action=>"destroy", :controller=>"sessions"}
+         log_in GET    /log_in(.:format)                      {:action=>"new", :controller=>"sessions"}
+       sessions POST   /sessions(.:format)                    {:action=>"create", :controller=>"sessions"}
+       
+         signup GET    /signup(.:format)                      {:action=>"new", :controller=>"users"}
+          users GET    /users(.:format)                       {:action=>"index", :controller=>"users"}
+          users POST   /users(.:format)                       {:action=>"create", :controller=>"users"}
+      edit_user GET    /users/:id/edit(.:format)              {:action=>"edit", :controller=>"users"}
+           user GET    /users/:id(.:format)                   {:action=>"show", :controller=>"users"}
+           user PUT    /users/:id(.:format)                   {:action=>"update", :controller=>"users"}
+           user DELETE /users/:id(.:format)                   {:action=>"destroy", :controller=>"users"}
+           
+         topics        /topics(.:format)                      {:controller=>"topics", :action=>"index"}
+         
+    topic_posts POST   /topics/:topic_id/posts(.:format)      {:action=>"create", :controller=>"posts"}
+ new_topic_post GET    /topics/:topic_id/posts/new(.:format)  {:action=>"new", :controller=>"posts"}
+      edit_post GET    /posts/:id/edit(.:format)              {:action=>"edit", :controller=>"posts"}
+           post PUT    /posts/:id(.:format)                   {:action=>"update", :controller=>"posts"}
+           post DELETE /posts/:id(.:format)                   {:action=>"destroy", :controller=>"posts"}
+           
+   forum_topics POST   /forums/:forum_id/topics(.:format)     {:action=>"create", :controller=>"topics"}
+new_forum_topic GET    /forums/:forum_id/topics/new(.:format) {:action=>"new", :controller=>"topics"}
+     edit_topic GET    /topics/:id/edit(.:format)             {:action=>"edit", :controller=>"topics"}
+          topic GET    /topics/:id(.:format)                  {:action=>"show", :controller=>"topics"}
+          topic PUT    /topics/:id(.:format)                  {:action=>"update", :controller=>"topics"}
+          topic DELETE /topics/:id(.:format)                  {:action=>"destroy", :controller=>"topics"}
+          
+         forums GET    /forums(.:format)                      {:action=>"index", :controller=>"forums"}
+         forums POST   /forums(.:format)                      {:action=>"create", :controller=>"forums"}
+      new_forum GET    /forums/new(.:format)                  {:action=>"new", :controller=>"forums"}
+     edit_forum GET    /forums/:id/edit(.:format)             {:action=>"edit", :controller=>"forums"}
+          forum GET    /forums/:id(.:format)                  {:action=>"show", :controller=>"forums"}
+          forum PUT    /forums/:id(.:format)                  {:action=>"update", :controller=>"forums"}
+          forum DELETE /forums/:id(.:format)                  {:action=>"destroy", :controller=>"forums"}
+           root        /(.:format)                            {:controller=>"forums", :action=>"index"}

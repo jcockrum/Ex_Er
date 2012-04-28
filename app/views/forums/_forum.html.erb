@@ -1,0 +1,15 @@
+<!--Partial for -->
+<% div_for forum do %>
+    <tr>
+      <td><%= forum.title %></td>
+	  <td><%= forum.id %></td>
+	  <td><%= forum.user_id %></td>
+      <td><%= link_to 'Show ', forum %> </td>
+	  <% if current_user==forum.user %>
+		  <td><%= link_to 'Edit ', edit_forum_path(forum) %> </td>
+		  <td><%= link_to 'Destroy ', forum, :confirm => 'Are you sure?', :method => :delete %> </td>
+	  <% end %>
+    </tr>
+<%end%>
+
+

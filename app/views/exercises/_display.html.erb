@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Set</th>
+    <th>Reps</th>
+    <th>Time</th>
+  </tr>
+  <% for exercise in @exercises %>
+    <tr>
+      <td><%= exercise.name %></td>
+      <td><%= exercise.extype %></td>
+      <td><%= exercise.set %></td>
+      <td><%= exercise.repetition %></td>
+      <td><%= l exercise.target_time, :format => :as_hr%></td>
+    </tr>
+  <% end %>
+</table>

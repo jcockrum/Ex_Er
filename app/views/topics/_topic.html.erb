@@ -1,0 +1,14 @@
+<!-- partial for Displaying topics on the forum#show-->
+<% div_for topic do %>
+	<tr>
+	    <td><%= topic.title %></td>
+		<td><%= topic.forum_id %></td>
+		<td><%= topic.id %></td>
+	    <td><%= topic.user_id %></td>
+	    <td><%= link_to 'View', topic %></td>
+	    <% if current_user==topic.user %>
+		    <td><%= link_to 'Edit', edit_topic_path(@topic) %></td>
+		    <td><%= link_to 'Delete', topic_path(topic), :confirm => 'Are you sure?', :method => :delete %></td>
+	    <% end %>
+	</tr>
+<% end %>

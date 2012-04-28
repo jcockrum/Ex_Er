@@ -1,0 +1,21 @@
+<% title "Edit Post" %>
+
+<div class="editcontainer">
+	<div class="editleft">
+			<%= form_for (@post) do |f| %>
+		<div class="field">
+		    <%= f.label :body %>
+		    <br/><%= f.text_area :body %>
+		</div>
+		<p>
+			<%= f.submit %>
+			<%= link_to '  Back to Topic', topic_path(@post.topic_id) %> 
+		</p>
+		<% end %>
+	</div>
+	<div class="editcontent">
+			<p>Topic: <%= @post.topic_id %>  </p>
+			<p>Post: <%= @post.id %>    	 </p>
+			<p>User: <%= @post.user_id %>    </p>
+	</div>
+</div>

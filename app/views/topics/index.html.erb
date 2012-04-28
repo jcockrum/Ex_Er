@@ -1,0 +1,29 @@
+<% title "Threads" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Forum</th>
+	<th>Topic</th>
+	<th>User</th>
+  </tr>
+  <% for topic in @topics %>
+    <tr>
+      <td><%= topic.title %></td>
+	  <td><%= topic.forum_id %></td>
+	  <td><%= topic.id%></td>
+	  <td><%= topic.user_id %></td>
+	  <td><%= link_to "Show", topic %></td> 
+	  <% if current_user==topic.user %>
+		  <td><%= link_to "Edit", edit_topic_path(topic) %> </td>
+		  <td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td>
+	  <% end %>
+    </tr>
+  <% end %>
+</table>
+<div>
+    <p></p>
+	<p></p>
+</div>
+
+

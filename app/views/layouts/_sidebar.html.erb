@@ -1,0 +1,28 @@
+<div id="sidebar">
+    <div class="block">
+        <div class="block">
+            <% if signed_in? %>
+            <h3>Site Navagation</h3>
+            <%else %>
+            <h3>Welcome</h3>
+            <%end %>
+            <ul class="navigation">
+                <%= render :partial => 'layouts/app_links' %>
+            </ul>
+        </div>
+        <div class="block">
+            <h3>Current Programs</h3>
+            <div class="sidebar-block">
+                <h4><%= link_to "Current Workout", events_path %></h4>
+                <%= render :partial => 'events/display' %>
+            </div>
+        </div>
+        <div class="block">
+            <div class="sidebar-block">
+                <h4><%= link_to "Current Exercises", exercises_path %></h4>
+                <%= render :partial => 'exercises/display' %>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<% title "View Thread" %>
+<div>
+    <table>
+        <tr>
+            <th>Thread Title </th>
+			<th>Fourm </th>
+			<th>Topic_id</th>
+            <th>Created by </th>
+        </tr>
+        <tr>
+            <td><%= @topic.title %></td>
+			<td><%= @topic.forum_id%></td>
+			<td><%= @topic.id%></td>
+            <td><%= @topic.user_id %></td>
+			<% if current_user==@topic.user %>
+            	<td><%= link_to 'Edit', edit_topic_path(@topic) %></td>
+			<% end%>
+        </tr>
+    </table>
+</div>
+<h2>Posts</h2>
+<div id ="comments">
+    <%= render :partial => @topic.posts %>
+</div>
+<% if current_user %>
+	<%= form_for([@topic, @topic.posts.build]) do |f| %>
+		<div class="field">
+			<%= f.label :body, "New Post" %><br/><%= f.text_area :body, :rows => 5 %><br/>
+		</div>
+		<p><%= f.submit %></p>
+	<% end %>
+<% end %>	
+<div>
+    <p></p>
+</div>

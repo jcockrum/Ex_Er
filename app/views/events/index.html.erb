@@ -1,0 +1,25 @@
+<% title "Workout" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start At</th>
+    <th>End At</th>
+  </tr>
+  <% for event in @events %>
+    <tr>
+      <td><%= event.name %></td>
+	  <td><%=  l(event.start_at, :format=>:long) %></td>
+	  <td><%=  l(event.end_at, :format=>:long) %></td>
+      <td><%= link_to "Show", event %></td>
+	  <% if has_access?(event.user_id)%>
+      	<td><%= link_to "Edit", edit_event_path(event) %></td>
+      	<td><%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %></td>
+	  <%end%>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+<%= render :partial => 'edv_links' %>
+</p>
